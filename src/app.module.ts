@@ -8,6 +8,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { Profile } from './profile/entity/profile.entity';
 import { ProfileModule } from './profile/profile.module';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -37,8 +40,9 @@ import { ProfileModule } from './profile/profile.module';
       inject: [ConfigService],
     }),
     ProfileModule,
+    UserModule,
   ],
-  controllers: [AppController, ProfileController],
-  providers: [AppService, ProfileService],
+  controllers: [AppController, ProfileController, UserController],
+  providers: [AppService, ProfileService, UserService],
 })
 export class AppModule {}
