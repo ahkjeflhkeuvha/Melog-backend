@@ -12,6 +12,7 @@ import { Comment } from './comment/entity/comment.entity';
 import { Post } from './post/entity/post.entity';
 import { Like } from './like/entity/like.entity';
 import { Follow } from './follow/entity/follow.entity';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { Follow } from './follow/entity/follow.entity';
       inject: [ConfigService],
     }),
     ProfileModule,
+    PostModule,
     UserModule,
   ],
   controllers: [AppController],
