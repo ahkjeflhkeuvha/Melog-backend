@@ -8,7 +8,7 @@ import {
 import { Profile } from 'src/profile/entity/profile.entity';
 
 @Entity()
-@Unique(['followingUser', 'followedUser'])
+@Unique(['following_user', 'followed_user'])
 export class Follow {
   @PrimaryGeneratedColumn()
   id: number;

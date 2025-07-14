@@ -11,6 +11,11 @@ import { ProfileModule } from './profile/profile.module';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { UserModule } from './user/user.module';
+import { User } from './user/entity/user.entity';
+import { Comment } from './comment/entity/comment.entity';
+import { Post } from './post/entity/post.entity';
+import { Like } from './like/entity/like.entity';
+import { Follow } from './follows/entity/follows.entity';
 
 @Module({
   imports: [
@@ -34,7 +39,7 @@ import { UserModule } from './user/user.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
-        entities: [Profile],
+        entities: [Profile, User, Comment, Post, Like, Follow],
         synchronize: false,
       }),
       inject: [ConfigService],
