@@ -37,4 +37,15 @@ export class ProfileService {
 
     return profile;
   }
+
+  async getProfileByUserId(userId: number) {
+    const profile = await this.profileRepository.findOne({
+      where: {
+        user: { id: userId },
+      },
+      relations: ['user', 'posts'],
+    });
+
+    return profile;
+  }
 }

@@ -5,7 +5,9 @@ import {
   Column,
   OneToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
+import { Post } from 'src/post/entity/post.entity';
 
 @Entity()
 export class Profile {
@@ -39,4 +41,7 @@ export class Profile {
 
   @Column({ default: 0 })
   following_count: number;
+
+  @OneToMany(() => Post, (post) => post.profile)
+  posts: Post[];
 }
