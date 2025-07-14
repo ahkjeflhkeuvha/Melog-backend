@@ -3,7 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+import { Profile } from 'src/profile/entity/profile.entity';
 
 @Entity()
 export class Post {
@@ -27,4 +30,8 @@ export class Post {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @ManyToOne(() => Profile, (profile) => profile.posts)
+  @JoinColumn({ name: 'profile_id' })
+  profile: Profile;
 }
