@@ -1,21 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProfileService } from './profile/profile.service';
-import { ProfileController } from './profile/profile.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { Profile } from './profile/entity/profile.entity';
 import { ProfileModule } from './profile/profile.module';
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
 import { UserModule } from './user/user.module';
 import { User } from './user/entity/user.entity';
 import { Comment } from './comment/entity/comment.entity';
 import { Post } from './post/entity/post.entity';
 import { Like } from './like/entity/like.entity';
-import { Follow } from './follows/entity/follows.entity';
+import { Follow } from './follow/entity/follow.entity';
 
 @Module({
   imports: [
@@ -47,7 +43,7 @@ import { Follow } from './follows/entity/follows.entity';
     ProfileModule,
     UserModule,
   ],
-  controllers: [AppController, ProfileController, UserController],
-  providers: [AppService, ProfileService, UserService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

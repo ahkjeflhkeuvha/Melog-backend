@@ -13,11 +13,14 @@ export class Profile {
   id: number;
 
   @OneToOne(() => User, { nullable: false })
-  @JoinColumn()
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
   @Column({ nullable: false })
   name: string;
+
+  @Column({ nullable: false })
+  mlog_title: string;
 
   @Column({ nullable: false })
   grade: number;
@@ -26,7 +29,7 @@ export class Profile {
   class: number;
 
   @Column({ nullable: false })
-  text: string;
+  bio: string;
 
   @Column()
   profile_image_url: string;
